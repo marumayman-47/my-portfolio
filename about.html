@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Mariam Ayman</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Clash+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        position: relative;
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      body.light-mode {
+        background: linear-gradient(
+          135deg,
+          #f7f4ed 0%,
+          #f0e8ff 50%,
+          #e9f3ff 100%
+        );
+        color: #0b1957;
+      }
+
+      body.dark-mode {
+        background: linear-gradient(
+          135deg,
+          #0b1957 0%,
+          #1a2a5e 50%,
+          #0d1f3c 100%
+        );
+        color: #e9f3ff;
+      }
+
+      .bg-animated {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 40% 60% 70% 30%;
+        animation: blob-move 25s infinite ease-in-out;
+        opacity: 0.2;
+      }
+
+      .blob-1 {
+        width: 600px;
+        height: 600px;
+        top: -200px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      .light-mode .blob-1 {
+        background: radial-gradient(circle, #d2b3db 0%, transparent 70%);
+      }
+
+      .dark-mode .blob-1 {
+        background: radial-gradient(circle, #426bc2 0%, transparent 70%);
+      }
+
+      .blob-2 {
+        width: 500px;
+        height: 500px;
+        bottom: -150px;
+        right: -100px;
+        animation-delay: 1s;
+      }
+
+      .light-mode .blob-2 {
+        background: radial-gradient(circle, #426bc2 0%, transparent 70%);
+      }
+
+      .dark-mode .blob-2 {
+        background: radial-gradient(circle, #d2b3db 0%, transparent 70%);
+      }
+
+      @keyframes blob-move {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(50px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-30px, 50px) scale(0.9);
+        }
+      }
+
+      nav {
+        backdrop-filter: blur(20px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.4s ease;
+        border-bottom: 1px solid rgba(66, 107, 194, 0.1);
+      }
+
+      .light-mode nav {
+        background: rgba(247, 244, 237, 0.8);
+        color: #0b1957;
+      }
+
+      .dark-mode nav {
+        background: rgba(11, 25, 87, 0.8);
+        color: #e9f3ff;
+      }
+
+      .nav-content {
+        max-width: 7xl;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        font-family: "Clash Display", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #0b1957, #426bc2, #d2b3db);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-shift 8s ease infinite;
+        text-decoration: none;
+      }
+
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #0b1957, #426bc2, #d2b3db);
+        transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .nav-link:hover::after {
+        left: 100%;
+      }
+
+      .theme-toggle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #426bc2;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .light-mode .theme-toggle {
+        border-color: #0b1957;
+      }
+
+      .dark-mode .theme-toggle {
+        border-color: #e9f3ff;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1) rotate(20deg);
+      }
+
+      .page-container {
+        padding-top: 100px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 7xl;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        font-family: "Clash Display", sans-serif;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #0b1957, #426bc2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fade-in-up 0.8s ease-out;
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        margin-bottom: 60px;
+        max-width: 700px;
+        line-height: 1.8;
+        animation: fade-in-up 0.8s ease-out 0.1s both;
+        opacity: 0.85;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        margin-bottom: 100px;
+      }
+
+      .about-content {
+        animation: fade-in-up 0.8s ease-out 0.2s both;
+      }
+
+      .about-content p {
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+        line-height: 1.8;
+        opacity: 0.9;
+      }
+
+      .about-image {
+        position: relative;
+        animation: fade-in-up 0.8s ease-out 0.3s both;
+      }
+
+      .image-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .image-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(11, 25, 87, 0.2) 0%,
+          transparent 50%,
+          rgba(66, 107, 194, 0.1) 100%
+        );
+        z-index: 10;
+      }
+
+      .image-wrapper div {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(135deg, #426bc2, #d2b3db, #e9f3ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120px;
+      }
+
+      .skills-section {
+        margin-top: 100px;
+        padding: 80px 0;
+        border-top: 1px solid rgba(66, 107, 194, 0.2);
+        border-bottom: 1px solid rgba(66, 107, 194, 0.2);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .skill-category {
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 40px;
+        animation: fade-in-up 0.8s ease-out backwards;
+        transition: all 0.3s ease;
+        border: 1px solid;
+      }
+
+      .light-mode .skill-category {
+        background: rgba(66, 107, 194, 0.1);
+        border-color: rgba(11, 25, 87, 0.2);
+      }
+
+      .dark-mode .skill-category {
+        background: rgba(210, 179, 219, 0.05);
+        border-color: rgba(66, 107, 194, 0.2);
+      }
+
+      .skill-category:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .skill-category:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .skill-category:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .skill-category:nth-child(4) {
+        animation-delay: 0.5s;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-10px);
+      }
+
+      .light-mode .skill-category:hover {
+        background: rgba(66, 107, 194, 0.2);
+        border-color: rgba(11, 25, 87, 0.4);
+      }
+
+      .dark-mode .skill-category:hover {
+        background: rgba(210, 179, 219, 0.1);
+        border-color: rgba(66, 107, 194, 0.4);
+      }
+
+      .skill-title {
+        font-family: "Clash Display", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #0b1957, #426bc2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .skill-list {
+        list-style: none;
+      }
+
+      .skill-list li {
+        padding: 8px 0;
+        font-size: 0.95rem;
+        position: relative;
+        padding-left: 20px;
+        opacity: 0.9;
+      }
+
+      .skill-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        background: linear-gradient(135deg, #0b1957, #426bc2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 60px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 120px;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #0b1957, transparent);
+        transform: translateX(-50%);
+      }
+
+      @media (max-width: 768px) {
+        .timeline::before {
+          left: 0;
+        }
+      }
+
+      .timeline-item {
+        margin-bottom: 50px;
+        animation: fade-in-up 0.8s ease-out backwards;
+      }
+
+      .timeline-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .timeline-item:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .timeline-item:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      .timeline-item:nth-child(odd) {
+        padding-right: 50%;
+        text-align: right;
+      }
+
+      .timeline-item:nth-child(even) {
+        padding-left: 50%;
+        text-align: left;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          padding-left: 40px;
+          padding-right: 0;
+          text-align: left;
+        }
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        top: 120px;
+        width: 16px;
+        height: 16px;
+        background: #426bc2;
+        border: 3px solid;
+        border-radius: 50%;
+        transform: translateX(-50%);
+      }
+
+      .light-mode .timeline-dot {
+        border-color: #f7f4ed;
+      }
+
+      .dark-mode .timeline-dot {
+        border-color: #0b1957;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-dot {
+          left: -8px;
+        }
+      }
+
+      .timeline-content {
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 30px;
+        position: relative;
+        transition: all 0.3s ease;
+        border: 1px solid;
+      }
+
+      .light-mode .timeline-content {
+        background: rgba(66, 107, 194, 0.1);
+        border-color: rgba(11, 25, 87, 0.2);
+      }
+
+      .dark-mode .timeline-content {
+        background: rgba(210, 179, 219, 0.05);
+        border-color: rgba(66, 107, 194, 0.2);
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+      }
+
+      .light-mode .timeline-content:hover {
+        background: rgba(66, 107, 194, 0.2);
+        border-color: rgba(11, 25, 87, 0.4);
+      }
+
+      .dark-mode .timeline-content:hover {
+        background: rgba(210, 179, 219, 0.1);
+        border-color: rgba(66, 107, 194, 0.4);
+      }
+
+      .timeline-year {
+        font-family: "Clash Display", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #426bc2;
+        margin-bottom: 8px;
+      }
+
+      .timeline-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .timeline-desc {
+        font-size: 0.95rem;
+        opacity: 0.85;
+      }
+
+      @media (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline {
+          padding-left: 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="light-mode">
+    <div class="bg-animated">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+
+    <nav>
+      <div class="nav-content">
+        <a href="index.html" class="logo">MA</a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <button
+          class="theme-toggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle dark mode"
+        >
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <div class="container">
+        <h1 class="section-title">About Me</h1>
+        <p class="section-subtitle">
+          Full Stack Developer with a passion for creating beautiful, functional
+          web experiences. Always learning, always growing.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-content">
+            <p>
+              I'm Mariam Ayman, a full stack web developer specializing in PHP
+              and modern JavaScript frameworks. With over 5 years of experience,
+              I've had the privilege of working with diverse teams to create
+              scalable web applications that solve real-world problems.
+            </p>
+            <p>
+              My passion lies in building seamless digital experiences that
+              combine elegant design with robust backend architecture. I believe
+              that great code is not just about functionality—it's about
+              creating solutions that users love to interact with.
+            </p>
+            <p>
+              When I'm not coding, you'll find me exploring the latest web
+              technologies, contributing to open-source projects, or sharing
+              knowledge with fellow developers through blogs and tutorials.
+            </p>
+          </div>
+
+          <div class="about-image">
+            <div class="image-wrapper">
+              <div>👩‍💻</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h2 class="section-title">Technical Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="skill-title">Backend</h3>
+              <ul class="skill-list">
+                <li>PHP 7.4+</li>
+                <li>Laravel Framework</li>
+                <li>RESTful APIs</li>
+                <li>Database Design</li>
+                <li>Server Architecture</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3 class="skill-title">Frontend</h3>
+              <ul class="skill-list">
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Angular</li>
+                <li>Tailwind CSS</li>
+                <li>Responsive Design</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3 class="skill-title">Databases</h3>
+              <ul class="skill-list">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+                <li>Redis</li>
+                <li>Query Optimization</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3 class="skill-title">Tools & Platforms</h3>
+              <ul class="skill-list">
+                <li>Git & GitHub</li>
+                <li>Docker</li>
+                <li>AWS & Cloud Services</li>
+                <li>CI/CD Pipelines</li>
+                <li>Linux/Ubuntu</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <h2 class="section-title" style="margin-bottom: 60px">
+            Professional Journey
+          </h2>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2025 - Present</div>
+              <div class="timeline-title">Junior Full Stack Developer</div>
+              <div class="timeline-desc">
+                Leading development of enterprise-scale applications with a
+                focus on architecture and mentoring.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024 - 2025</div>
+              <div class="timeline-title">Full Stack Developer</div>
+              <div class="timeline-desc">
+                Developed and maintained multiple client projects using PHP,
+                Laravel, and modern JavaScript frameworks.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023 - 2024</div>
+              <div class="timeline-title">Web Developer</div>
+              <div class="timeline-desc">
+                Started career building static websites and simple web
+                applications with HTML, CSS, and JavaScript.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById("theme-icon");
+
+        body.classList.toggle("light-mode");
+        body.classList.toggle("dark-mode");
+
+        const isDark = body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        themeIcon.textContent = isDark ? "☀️" : "🌙";
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        const body = document.body;
+        const themeIcon = document.getElementById("theme-icon");
+
+        body.classList.remove("light-mode", "dark-mode");
+        body.classList.add(savedTheme + "-mode");
+        themeIcon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+      });
+    </script>
+  </body>
+</html>
