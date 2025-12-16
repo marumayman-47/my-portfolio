@@ -204,6 +204,66 @@
         left: 100%;
       }
 
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: inherit;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        flex-direction: column;
+        gap: 0;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
+
+      .light-mode .mobile-menu {
+        background: rgba(247, 244, 237, 0.95);
+      }
+
+      .dark-mode .mobile-menu {
+        background: rgba(11, 25, 87, 0.95);
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        padding: 16px 20px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(66, 107, 194, 0.1);
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .light-mode .mobile-menu a {
+        color: #0b1957;
+      }
+
+      .dark-mode .mobile-menu a {
+        color: #e9f3ff;
+      }
+
+      .mobile-menu a:hover {
+        background: rgba(66, 107, 194, 0.1);
+        padding-left: 30px;
+      }
+
       .theme-toggle {
         width: 50px;
         height: 50px;
@@ -491,6 +551,10 @@
         .nav-links {
           display: none;
         }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
       }
     </style>
   </head>
@@ -510,15 +574,31 @@
           <a href="projects.html" class="nav-link">Projects</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
-        <button
-          class="theme-toggle"
-          onclick="toggleTheme()"
-          aria-label="Toggle dark mode"
-        >
-          <span id="theme-icon">🌙</span>
-        </button>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+          <button
+            class="theme-toggle"
+            onclick="toggleTheme()"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
       </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="closeMobileMenu()">Home</a>
+      <a href="about.html" onclick="closeMobileMenu()">About</a>
+      <a href="projects.html" onclick="closeMobileMenu()">Projects</a>
+      <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+    </div>
 
     <section class="hero">
       <div class="hero-content">
@@ -566,6 +646,16 @@
         const isDark = body.classList.contains("dark-mode");
         localStorage.setItem("theme", isDark ? "dark" : "light");
         themeIcon.textContent = isDark ? "☀️" : "🌙";
+      }
+
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("active");
+      }
+
+      function closeMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.remove("active");
       }
 
       window.addEventListener("DOMContentLoaded", () => {

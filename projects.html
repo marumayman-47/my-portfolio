@@ -14,14 +14,12 @@
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
         font-family: "Poppins", sans-serif;
         overflow-x: hidden;
         position: relative;
         transition: background-color 0.5s ease, color 0.5s ease;
       }
-
       body.light-mode {
         background: linear-gradient(
           135deg,
@@ -31,7 +29,6 @@
         );
         color: #0b1957;
       }
-
       body.dark-mode {
         background: linear-gradient(
           135deg,
@@ -41,7 +38,6 @@
         );
         color: #e9f3ff;
       }
-
       .bg-animated {
         position: fixed;
         top: 0;
@@ -51,29 +47,24 @@
         z-index: -1;
         pointer-events: none;
       }
-
       .blob {
         position: absolute;
         border-radius: 40% 60% 70% 30%;
         animation: blob-rotate 20s linear infinite;
         opacity: 0.15;
       }
-
       .blob-1 {
         width: 700px;
         height: 700px;
         top: -200px;
         right: -150px;
       }
-
       .light-mode .blob-1 {
         background: #0b1957;
       }
-
       .dark-mode .blob-1 {
         background: #426bc2;
       }
-
       .blob-2 {
         width: 600px;
         height: 600px;
@@ -81,15 +72,12 @@
         left: -100px;
         animation-delay: 1s;
       }
-
       .light-mode .blob-2 {
         background: #426bc2;
       }
-
       .dark-mode .blob-2 {
         background: #0b1957;
       }
-
       .blob-3 {
         width: 500px;
         height: 500px;
@@ -97,15 +85,12 @@
         left: 50%;
         animation-delay: 2s;
       }
-
       .light-mode .blob-3 {
         background: #d2b3db;
       }
-
       .dark-mode .blob-3 {
         background: #426bc2;
       }
-
       @keyframes blob-rotate {
         0% {
           transform: rotate(0deg);
@@ -114,7 +99,6 @@
           transform: rotate(360deg);
         }
       }
-
       nav {
         backdrop-filter: blur(20px);
         position: fixed;
@@ -124,17 +108,14 @@
         transition: all 0.4s ease;
         border-bottom: 1px solid rgba(66, 107, 194, 0.1);
       }
-
       .light-mode nav {
         background: rgba(247, 244, 237, 0.8);
         color: #0b1957;
       }
-
       .dark-mode nav {
         background: rgba(11, 25, 87, 0.8);
         color: #e9f3ff;
       }
-
       .nav-content {
         max-width: 7xl;
         margin: 0 auto;
@@ -144,7 +125,6 @@
         align-items: center;
         height: 80px;
       }
-
       .logo {
         font-family: "Clash Display", sans-serif;
         font-size: 28px;
@@ -157,7 +137,6 @@
         animation: gradient-shift 8s ease infinite;
         text-decoration: none;
       }
-
       @keyframes gradient-shift {
         0% {
           background-position: 0% 50%;
@@ -169,12 +148,10 @@
           background-position: 0% 50%;
         }
       }
-
       .nav-links {
         display: flex;
         gap: 30px;
       }
-
       .nav-link {
         position: relative;
         font-weight: 600;
@@ -182,7 +159,6 @@
         text-decoration: none;
         transition: all 0.3s ease;
       }
-
       .nav-link::after {
         content: "";
         position: absolute;
@@ -193,11 +169,60 @@
         background: linear-gradient(90deg, #0b1957, #426bc2, #d2b3db);
         transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
-
       .nav-link:hover::after {
         left: 100%;
       }
-
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: inherit;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        flex-direction: column;
+        gap: 0;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
+      .light-mode .mobile-menu {
+        background: rgba(247, 244, 237, 0.95);
+      }
+      .dark-mode .mobile-menu {
+        background: rgba(11, 25, 87, 0.95);
+      }
+      .mobile-menu.active {
+        display: flex;
+      }
+      .mobile-menu a {
+        padding: 16px 20px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(66, 107, 194, 0.1);
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .light-mode .mobile-menu a {
+        color: #0b1957;
+      }
+      .dark-mode .mobile-menu a {
+        color: #e9f3ff;
+      }
+      .mobile-menu a:hover {
+        background: rgba(66, 107, 194, 0.1);
+        padding-left: 30px;
+      }
       .theme-toggle {
         width: 50px;
         height: 50px;
@@ -211,30 +236,24 @@
         transition: all 0.3s ease;
         font-size: 1.2rem;
       }
-
       .light-mode .theme-toggle {
         border-color: #0b1957;
       }
-
       .dark-mode .theme-toggle {
         border-color: #e9f3ff;
       }
-
       .theme-toggle:hover {
         transform: scale(1.1) rotate(20deg);
       }
-
       .page-container {
         padding-top: 100px;
         min-height: 100vh;
       }
-
       .container {
         max-width: 7xl;
         margin: 0 auto;
         padding: 0 20px;
       }
-
       .section-title {
         font-family: "Clash Display", sans-serif;
         font-size: clamp(2.5rem, 8vw, 4rem);
@@ -246,7 +265,6 @@
         background-clip: text;
         animation: fade-in-up 0.8s ease-out;
       }
-
       @keyframes fade-in-up {
         from {
           opacity: 0;
@@ -257,7 +275,6 @@
           transform: translateY(0);
         }
       }
-
       .section-subtitle {
         font-size: 1.125rem;
         margin-bottom: 80px;
@@ -266,14 +283,12 @@
         animation: fade-in-up 0.8s ease-out 0.1s both;
         opacity: 0.85;
       }
-
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 40px;
         margin-bottom: 100px;
       }
-
       .project-card {
         backdrop-filter: blur(20px);
         border-radius: 20px;
@@ -286,7 +301,6 @@
         position: relative;
         border: 1px solid;
       }
-
       .project-card:nth-child(1) {
         animation-delay: 0.1s;
       }
@@ -299,23 +313,14 @@
       .project-card:nth-child(4) {
         animation-delay: 0.4s;
       }
-      .project-card:nth-child(5) {
-        animation-delay: 0.5s;
-      }
-      .project-card:nth-child(6) {
-        animation-delay: 0.6s;
-      }
-
       .light-mode .project-card {
         background: rgba(66, 107, 194, 0.08);
         border-color: rgba(11, 25, 87, 0.15);
       }
-
       .dark-mode .project-card {
         background: rgba(210, 179, 219, 0.05);
         border-color: rgba(66, 107, 194, 0.2);
       }
-
       .project-card::before {
         content: "";
         position: absolute;
@@ -327,25 +332,20 @@
         opacity: 0;
         transition: opacity 0.3s ease;
       }
-
       .project-card:hover::before {
         opacity: 1;
       }
-
       .project-card:hover {
         transform: translateY(-12px);
       }
-
       .light-mode .project-card:hover {
         background: rgba(66, 107, 194, 0.15);
         border-color: rgba(11, 25, 87, 0.3);
       }
-
       .dark-mode .project-card:hover {
         background: rgba(210, 179, 219, 0.1);
         border-color: rgba(66, 107, 194, 0.4);
       }
-
       .project-image {
         width: 100%;
         height: 250px;
@@ -362,67 +362,12 @@
         position: relative;
         overflow: hidden;
       }
-
-      .project-image::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          transparent 0%,
-          rgba(11, 25, 87, 0.1) 100%
-        );
-        z-index: 1;
-      }
-
-      .project-emoji {
-        position: relative;
-        z-index: 2;
-        animation: float-emoji 3s ease-in-out infinite;
-      }
-
-      @keyframes float-emoji {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
       .project-content {
         padding: 40px;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
       }
-
-      .project-tag {
-        display: inline-block;
-        width: fit-content;
-        padding: 6px 12px;
-        border-radius: 50px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-        border: 1px solid;
-      }
-
-      .light-mode .project-tag {
-        background: rgba(11, 25, 87, 0.1);
-        border-color: rgba(11, 25, 87, 0.2);
-        color: #0b1957;
-      }
-
-      .dark-mode .project-tag {
-        background: rgba(210, 179, 219, 0.1);
-        border-color: rgba(210, 179, 219, 0.2);
-        color: #d2b3db;
-      }
-
       .project-title {
         font-family: "Clash Display", sans-serif;
         font-size: 1.5rem;
@@ -430,7 +375,6 @@
         margin-bottom: 12px;
         line-height: 1.3;
       }
-
       .project-description {
         font-size: 0.95rem;
         line-height: 1.6;
@@ -438,14 +382,12 @@
         flex-grow: 1;
         opacity: 0.9;
       }
-
       .project-tech {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         margin-bottom: 25px;
       }
-
       .tech-badge {
         display: inline-block;
         padding: 6px 14px;
@@ -455,31 +397,19 @@
         transition: all 0.3s ease;
         border: 1px solid;
       }
-
       .light-mode .tech-badge {
         background: rgba(66, 107, 194, 0.1);
         border-color: rgba(66, 107, 194, 0.3);
         color: #0b1957;
       }
-
       .dark-mode .tech-badge {
         background: rgba(66, 107, 194, 0.1);
         border-color: rgba(66, 107, 194, 0.3);
         color: #426bc2;
       }
-
       .tech-badge:hover {
         transform: scale(1.05);
       }
-
-      .light-mode .tech-badge:hover {
-        background: rgba(66, 107, 194, 0.2);
-      }
-
-      .dark-mode .tech-badge:hover {
-        background: rgba(66, 107, 194, 0.2);
-      }
-
       .project-link {
         display: inline-flex;
         align-items: center;
@@ -492,31 +422,14 @@
         transition: all 0.3s ease;
         width: fit-content;
       }
-
       .light-mode .project-link {
         color: #0b1957;
         border-color: rgba(11, 25, 87, 0.3);
       }
-
       .dark-mode .project-link {
         color: #e9f3ff;
         border-color: rgba(233, 243, 255, 0.3);
       }
-
-      .project-link:hover {
-        gap: 12px;
-      }
-
-      .light-mode .project-link:hover {
-        background: rgba(11, 25, 87, 0.1);
-        border-color: rgba(11, 25, 87, 0.8);
-      }
-
-      .dark-mode .project-link:hover {
-        background: rgba(233, 243, 255, 0.1);
-        border-color: rgba(233, 243, 255, 0.8);
-      }
-
       .featured-project {
         grid-column: 1 / -1;
         display: grid;
@@ -529,7 +442,6 @@
         animation: fade-in-up 0.8s ease-out 0.1s both;
         border: 1px solid;
       }
-
       .light-mode .featured-project {
         background: linear-gradient(
           135deg,
@@ -538,7 +450,6 @@
         );
         border-color: rgba(11, 25, 87, 0.15);
       }
-
       .dark-mode .featured-project {
         background: linear-gradient(
           135deg,
@@ -547,7 +458,6 @@
         );
         border-color: rgba(66, 107, 194, 0.2);
       }
-
       .featured-project-image {
         width: 100%;
         height: 350px;
@@ -558,7 +468,6 @@
         justify-content: center;
         font-size: 120px;
       }
-
       .featured-project-content h3 {
         font-family: "Clash Display", sans-serif;
         font-size: 2.5rem;
@@ -569,35 +478,32 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-
       .featured-project-content p {
         font-size: 1.05rem;
         margin-bottom: 20px;
         line-height: 1.8;
         opacity: 0.9;
       }
-
       @media (max-width: 768px) {
         .projects-grid {
           grid-template-columns: 1fr;
         }
-
         .featured-project {
           grid-template-columns: 1fr;
           padding: 40px;
         }
-
         .featured-project-image {
           height: 250px;
           font-size: 80px;
         }
-
         .featured-project-content h3 {
           font-size: 1.8rem;
         }
-
         .nav-links {
           display: none;
+        }
+        .mobile-menu-btn {
+          display: flex;
         }
       }
     </style>
@@ -618,237 +524,121 @@
           <a href="projects.html" class="nav-link">Projects</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
-        <button
-          class="theme-toggle"
-          onclick="toggleTheme()"
-          aria-label="Toggle dark mode"
-        >
-          <span id="theme-icon">🌙</span>
-        </button>
+        <div style="display: flex; gap: 10px; align-items: center">
+          <button
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+          <button
+            class="theme-toggle"
+            onclick="toggleTheme()"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
       </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="closeMobileMenu()">Home</a>
+      <a href="about.html" onclick="closeMobileMenu()">About</a>
+      <a href="projects.html" onclick="closeMobileMenu()">Projects</a>
+      <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+    </div>
 
     <div class="page-container">
       <div class="container">
         <h1 class="section-title">Featured Projects</h1>
         <p class="section-subtitle">
           Showcase of my recent work spanning e-commerce, web applications, and
-          digital solutions. Each project represents innovation and dedication
-          to quality.
+          digital solutions.
         </p>
-
-        <div class="featured-project">
-          <div class="featured-project-image">🛒</div>
-          <div class="featured-project-content">
-            <h3>E-Commerce Platform</h3>
-            <p>
-              A responsive and interactive e-commerce web application designed
-              for Customers, Sellers, and Admins. Built using HTML, CSS,
-              JavaScript, and Bootstrap, the system provides a complete shopping
-              experience, user dashboards, and role-based access.
-            </p>
-            <div class="project-tech">
-              <span class="tech-badge">JavaScript</span>
-              <span class="tech-badge">HTML</span>
-              <span class="tech-badge">CSS</span>
-              <span class="tech-badge">Local Storage</span>
-              <span class="tech-badge">jQuery</span>
-              <span class="tech-badge">emailjs</span>
-            </div>
-            <a
-              href="https://iti-teams.github.io/multi-actor-ecommerce-system/"
-              class="project-link"
-            >
-              View Live Site
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M7 17L17 7M7 7h10v10" />
-              </svg>
-            </a>
-          </div>
-        </div>
 
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-image">
-              <div class="project-emoji">🎆</div>
+            <div class="project-image">🛒</div>
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce Platform</h3>
+              <p class="project-description">
+                Responsive and interactive e-commerce web application for
+                Customers, Sellers, and Admins using HTML, CSS, JavaScript,
+                Bootstrap.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+              </div>
+              <a
+                href="https://iti-teams.github.io/multi-actor-ecommerce-system/"
+                class="project-link"
+                >View Live →</a
+              >
             </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">🎆</div>
             <div class="project-content">
               <h3 class="project-title">Event Management System</h3>
               <p class="project-description">
-                Event planning and management system simulating real-world
-                workflows with role-based access and interactive dashboards —
-                using localStorage and mock APIs.
+                Event planning system with role-based access and interactive
+                dashboards using Angular CLI and TypeScript.
               </p>
               <div class="project-tech">
-                <span class="tech-badge">Angular CLI</span>
+                <span class="tech-badge">Angular</span>
                 <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">Tailwind CSS</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">PrimeNG</span>
-                <span class="tech-badge">Chart.js</span>
+                <span class="tech-badge">Tailwind</span>
               </div>
               <a
                 href="https://github.com/marumayman-47/EMS"
                 class="project-link"
+                >View Repo →</a
               >
-                View Project Repository
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
             </div>
           </div>
 
           <div class="project-card">
-            <div class="project-image">
-              <div class="project-emoji">👔</div>
-            </div>
+            <div class="project-image">👔</div>
             <div class="project-content">
-              <h3 class="project-title">job board platform</h3>
+              <h3 class="project-title">Job Board Platform</h3>
               <p class="project-description">
-                Forsatok is a modern, feature-rich job board platform designed
-                to streamline the recruitment process. Built with cutting-edge
-                technologies, it provides a seamless experience for employers to
-                post jobs, candidates to discover opportunities, and
-                administrators to manage the platform efficiently.
-              </p>
-              <div class="project-tech">
-                <span class="tech-badge">Laravel 12.x</span>
-                <span class="tech-badge">PHP 8.2x</span>
-                <span class="tech-badge">Spatie premission</span>
-                <span class="tech-badge">Livewire</span>
-                <span class="tech-badge">Pusher</span>
-                <span class="tech-badge">AAngular 20.x</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">Tailwind CSS</span>
-                <span class="tech-badge">PrimeNG</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">ngx-toastr</span>
-              </div>
-              <a
-                href="https://iti-teams.github.io/forsatok/home"
-                class="project-link"
-              >
-                View Project
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
-              <a
-                href="https://github.com/ITI-Teams/forsatok"
-                class="project-link"
-              >
-                View Project Repository
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-emoji">🏘</div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Ra7al</h3>
-              <p class="project-description">
-                Functional platform connecting students with suitable housing
-                options and compatible roommates while providing property owners
-                with tools to create student-friendly listings. The platform
-                focuses on matching, trust, and interaction between students and
-                owners.
+                Modern job board platform built with Laravel and Angular
+                featuring job listings, employer tools, and admin management.
               </p>
               <div class="project-tech">
                 <span class="tech-badge">Laravel</span>
                 <span class="tech-badge">Angular</span>
                 <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">Tailwind CSS</span>
-                <span class="tech-badge">Pusher</span>
-                <span class="tech-badge">OpenAI API </span>
-                <span class="tech-badge">RESTful API</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">Advanced Email</span>
               </div>
-              <a href="https://github.com/ITI-Teams/ra7al" class="project-link">
-                View Project Repository
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
+              <a
+                href="https://github.com/ITI-Teams/forsatok"
+                class="project-link"
+                >View Repo →</a
+              >
             </div>
           </div>
 
           <div class="project-card">
-            <div class="project-image">
-              <div class="project-emoji">☕️</div>
-            </div>
+            <div class="project-image">🏘</div>
             <div class="project-content">
-              <h3 class="project-title">Coffee Landing Page</h3>
+              <h3 class="project-title">Ra7al - Student Housing</h3>
               <p class="project-description">
-                Landing page for a coffee brand, showcasing products, special
-                offers, and customer testimonials with a modern and appealing
-                design.
+                Platform connecting students with housing options and compatible
+                roommates using Laravel, Angular, and OpenAI API.
               </p>
               <div class="project-tech">
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">Laravel</span>
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">OpenAI</span>
               </div>
-              <a
-                href="https://github.com/marumayman-47/project03"
-                class="project-link"
+              <a href="https://github.com/ITI-Teams/ra7al" class="project-link"
+                >View Repo →</a
               >
-                View Project Repository
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -859,20 +649,24 @@
       function toggleTheme() {
         const body = document.body;
         const themeIcon = document.getElementById("theme-icon");
-
         body.classList.toggle("light-mode");
         body.classList.toggle("dark-mode");
-
         const isDark = body.classList.contains("dark-mode");
         localStorage.setItem("theme", isDark ? "dark" : "light");
         themeIcon.textContent = isDark ? "☀️" : "🌙";
       }
-
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("active");
+      }
+      function closeMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.remove("active");
+      }
       window.addEventListener("DOMContentLoaded", () => {
         const savedTheme = localStorage.getItem("theme") || "light";
         const body = document.body;
         const themeIcon = document.getElementById("theme-icon");
-
         body.classList.remove("light-mode", "dark-mode");
         body.classList.add(savedTheme + "-mode");
         themeIcon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
